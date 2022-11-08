@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, Button, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import styles from './ReactOtpInput/styles';
 import ReactOtpInput from '../../Prasentation/Component/ReactOtpInput/ReactOtpInput';
@@ -8,54 +8,37 @@ const Test = () => {
   const [inputData, setInputData] = useState('');
   return (
     <View style={styles.container}>
-      <View style={{marginVertical: scale(20), marginTop: scale(30)}}>
-        <Text
+      <View
+        style={{
+          flex: 1,
+          marginVertical: scale(20),
+          marginTop: scale(50),
+          justifyContent: 'center',
+          //   alignItems: 'center',
+          flexDirection: 'column',
+        }}>
+        <ReactOtpInput />
+        <TouchableOpacity
           style={{
-            fontSize: scale(14),
-            fontFamily: 'SourceSansPro-Regular',
-
-            color: '#4D4F5C',
-          }}>
-          jhghg
-        </Text>
-        <Text
-          style={{
-            fontSize: scale(14),
-            fontFamily: 'SourceSansPro-Regular',
-
-            color: '#4D4F5C',
-          }}>
-          jhghg
-        </Text>
-        <Text
-          style={{
-            fontSize: scale(14),
-            fontFamily: 'SourceSansPro-Regular',
-
-            color: '#4D4F5C',
-          }}>
-          jhghg
-        </Text>
-        <Text
-          style={{
-            fontSize: scale(14),
-            fontFamily: 'SourceSansPro-Regular',
-
-            color: '#4D4F5C',
-          }}>
-          jhghg
-        </Text>
-        <Text
-          style={{
-            fontSize: scale(14),
-            fontFamily: 'SourceSansPro-Regular',
-
-            color: '#4D4F5C',
-          }}>
-          jhghg
-        </Text>
-
-        <ReactOtpInput onChangeText={setInputData} value={inputData} />
+            marginLeft: scale(5),
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: scale(5),
+            backgroundColor: '#00A8DB',
+            // borderWidth: 2,
+            height: scale(40),
+            width: scale(100),
+          }}
+          disabled={false}>
+          <Text
+            style={{
+              fontSize: scale(18),
+              fontFamily: 'SourceSansPro-SemiBold',
+              color: '#ffff',
+            }}>
+            save
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

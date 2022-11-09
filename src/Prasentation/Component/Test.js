@@ -5,7 +5,9 @@ import ReactOtpInput from '../../Prasentation/Component/ReactOtpInput/ReactOtpIn
 import {scale} from '../../Infrastructure/utils/screenUtility';
 
 const Test = () => {
-  const [inputData, setInputData] = useState('');
+  const OnSubmit = () => {
+    console.log('parent');
+  };
   return (
     <View style={styles.container}>
       <View
@@ -15,56 +17,14 @@ const Test = () => {
           marginTop: scale(50),
           justifyContent: 'center',
         }}>
-        <ReactOtpInput />
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'row',
-          }}>
-          <TouchableOpacity
-            style={{
-              marginLeft: scale(5),
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: scale(5),
-              backgroundColor: '#00A8DB',
-              //   borderWidth: 2,
-              height: scale(40),
-              width: scale(100),
-            }}
-            disabled={false}>
-            <Text
-              style={{
-                fontSize: scale(18),
-                fontFamily: 'SourceSansPro-SemiBold',
-                color: '#ffff',
-              }}>
-              Clear
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              marginLeft: scale(5),
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: scale(5),
-              backgroundColor: '#00A8DB',
-              // borderWidth: 2,
-              height: scale(40),
-              width: scale(100),
-            }}
-            disabled={false}>
-            <Text
-              style={{
-                fontSize: scale(18),
-                fontFamily: 'SourceSansPro-SemiBold',
-                color: '#ffff',
-              }}>
-              Next
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <Text>skhdbsbdkab</Text>
+        <ReactOtpInput
+          pinCount={5} //Number of digits in the component
+          secureTextEntry={false} //Hide contents of text fields
+          onSubmit={OnSubmit}
+          autoSubmit={true} // Call a function after fill all field
+        />
+        <Text>skhdbsbdkab</Text>
       </View>
     </View>
   );

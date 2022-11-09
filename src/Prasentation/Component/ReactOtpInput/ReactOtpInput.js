@@ -14,10 +14,9 @@ import {
 } from '../../../Infrastructure/utils/screenUtility';
 
 const OtpInput = props => {
-  const length = 4;
+  const length = 6;
   const TextInputss = [];
   let pin = [];
-  console.log('🚀 ~ file: ReactOtpInput.js ~ line 19 ~ OtpInput ~ pin', pin);
   const mapRef = [];
   for (let index = 0; index < length; index++) {
     mapRef.push(useRef());
@@ -56,7 +55,7 @@ const OtpInput = props => {
             autoFocus={i === 0}
             maxLength={1}
             keyboardType="number-pad"
-            // editable={!isError}
+            editable={true}
           />
         </View>,
       );

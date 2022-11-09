@@ -14,31 +14,57 @@ const Test = () => {
           marginVertical: scale(20),
           marginTop: scale(50),
           justifyContent: 'center',
-          //   alignItems: 'center',
-          flexDirection: 'column',
         }}>
         <ReactOtpInput />
-        <TouchableOpacity
+        <View
           style={{
-            marginLeft: scale(5),
             justifyContent: 'center',
             alignItems: 'center',
-            borderRadius: scale(5),
-            backgroundColor: '#00A8DB',
-            // borderWidth: 2,
-            height: scale(40),
-            width: scale(100),
-          }}
-          disabled={false}>
-          <Text
+            flexDirection: 'row',
+          }}>
+          <TouchableOpacity
             style={{
-              fontSize: scale(18),
-              fontFamily: 'SourceSansPro-SemiBold',
-              color: '#ffff',
-            }}>
-            save
-          </Text>
-        </TouchableOpacity>
+              marginLeft: scale(5),
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: scale(5),
+              backgroundColor: '#00A8DB',
+              //   borderWidth: 2,
+              height: scale(40),
+              width: scale(100),
+            }}
+            disabled={false}>
+            <Text
+              style={{
+                fontSize: scale(18),
+                fontFamily: 'SourceSansPro-SemiBold',
+                color: '#ffff',
+              }}>
+              Clear
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              marginLeft: scale(5),
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: scale(5),
+              backgroundColor: '#00A8DB',
+              // borderWidth: 2,
+              height: scale(40),
+              width: scale(100),
+            }}
+            disabled={false}>
+            <Text
+              style={{
+                fontSize: scale(18),
+                fontFamily: 'SourceSansPro-SemiBold',
+                color: '#ffff',
+              }}>
+              Next
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

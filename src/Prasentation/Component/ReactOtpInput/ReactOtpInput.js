@@ -7,7 +7,14 @@ import {
 } from '../../../Infrastructure/utils/screenUtility';
 import PropTypes from 'prop-types';
 const OtpInput = props => {
-  // const [num, setNum] = useState(props.pinCount);
+  const {
+    onSubmit,
+    secureTextEntry,
+    autoSubmit,
+    mode,
+    borderRadius,
+    onChageValue,
+  } = props;
   const inputRef = useRef();
   const [otp, setOtp] = useState(
     new Array(
@@ -25,14 +32,16 @@ const OtpInput = props => {
     e.nativeEvent?.text
       ? setActiveOtpIndex(index + 1)
       : setActiveOtpIndex(index - 1);
-    // index === props.pinCount - 1 ? props.onSubmit() : null;
     /**
      * * For AutoSubmit (After Fill All Input we Can call a Fun)
      */
-    props.autoSubmit
+    index === props.pinCount - 1
+      ? onChageValue(newOtp.join('').toString())
+      : null;
+    autoSubmit
       ? index === props.pinCount - 1
-        ? props.onSubmit()
-          ? props.onSubmit()
+        ? onSubmit()
+          ? onSubmit(newOtp.join('').toString())
           : null
         : null
       : null;
@@ -75,8 +84,17 @@ const OtpInput = props => {
               <View
                 key={index}
                 style={{
-                  borderWidth: scale(0.5),
-                  borderRadius: scale(2),
+                  borderBottomWidth: scale(mode === 'flat' ? 0.5 : 0.5),
+                  borderWidth: scale(mode === 'flat' ? 0 : 0.5),
+                  borderRadius: scale(
+                    mode === 'circle'
+                      ? 50
+                      : mode === 'rectangle'
+                      ? borderRadius
+                      : mode === 'rectangle'
+                      ? 0
+                      : 4,
+                  ),
                   backgroundColor: '#FFFFFF',
                   marginHorizontal:
                     Platform.isPad || guidelineBaseWidth > 500
@@ -97,11 +115,13 @@ const OtpInput = props => {
                   editable={true}
                   onChange={e => ChangeHandler(e, index)}
                   onKeyPress={e => OnKeyHandler(e, index)}
-                  secureTextEntry={props.secureTextEntry}
+                  secureTextEntry={secureTextEntry}
                   style={{
-                    height: scale(40),
+                    height: scale(
+                      props.pinCount > 4 && props.pinCount < 7 ? 40 : 50,
+                    ),
                     width: scale(
-                      props.pinCount > 4 && props.pinCount < 7 ? 30 : 40,
+                      props.pinCount > 4 && props.pinCount < 7 ? 40 : 50,
                     ),
                     margin: scale(4),
                     textAlign: 'center',
@@ -125,9 +145,12 @@ const OtpInput = props => {
 
 OtpInput.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  pinCount: PropTypes.number,
+  pinCount: PropTypes.number.isRequired,
   secureTextEntry: PropTypes.bool,
   autoSubmit: PropTypes.bool,
+  mode: PropTypes.string,
+  borderRadius: PropTypes.number,
+  onChageValue: PropTypes.func,
 };
 
 OtpInput.defaultProps = {
@@ -137,5 +160,8 @@ OtpInput.defaultProps = {
   // pinCount: 0,
   secureTextEntry: false,
   autoSubmit: false,
+  mode: 'rectangle',
+  borderRadius: 4,
+  onChageValue: () => {},
 };
 export default OtpInput;

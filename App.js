@@ -7,14 +7,15 @@
  */
 
 import React from 'react';
-import Test from './src/Prasentation/Component/Test';
+import OtpInput from './src/Prasentation/Component/ReactOtpInput/ReactOtpInput';
+// import Test from './src/Prasentation/Component/Test';
 // import ReactOtpInput from './src/ReactOtpInput/ReactOtpInput';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
 
 const App = () => {
-  return <Test />;
+  return <OtpInput />;
 };
 
 export default App;

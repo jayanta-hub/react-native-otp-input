@@ -5,8 +5,9 @@ import ReactOtpInput from '../../Prasentation/Component/ReactOtpInput/ReactOtpIn
 import {scale} from '../../Infrastructure/utils/screenUtility';
 
 const Test = () => {
-  const OnSubmit = () => {
-    console.log('parent');
+  const [value, setValue] = useState('');
+  const OnSubmit = e => {
+    console.log('parent', e);
   };
   return (
     <View style={styles.container}>
@@ -23,6 +24,9 @@ const Test = () => {
           secureTextEntry={false} //Hide contents of text fields
           onSubmit={OnSubmit}
           autoSubmit={true} // Call a function after fill all field
+          mode="rectangle"
+          borderRadius={4} // Rectanlge Border Radius
+          onChageValue={setValue}
         />
         <Text>skhdbsbdkab</Text>
       </View>
